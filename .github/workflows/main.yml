@@ -24,7 +24,7 @@ jobs:
       run: dotnet build "/home/runner/work/TestGtihupActions/TestGtihupActions/TestGtihupActions.API/TestGtihupActions.API.csproj" --configuration Release  # Proje dosyalarını derle
 
     - name: Publish the project
-      run: dotnet publish "/home/runner/work/TestGtihupActions/TestGtihupActions/TestGtihupActions.API/TestGtihupActions.API.csproj" --configuration Release   # Proje dosyalarını yayınla
+      run: dotnet publish "/home/runner/work/TestGtihupActions/TestGtihupActions/TestGtihupActions.API/TestGtihupActions.API.csproj" --configuration Release --output "./publish/"   # Proje dosyalarını yayınla
 
     - name: 🚚 Deploy To Ftp Server
       uses: actions/checkout@v3
@@ -37,4 +37,4 @@ jobs:
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         server-dir: /TestApiForActions/
-        local-dir: ./home/runner/work/TestGtihupActions/TestGtihupActions/TestGtihupActions.API/bin/Release/net7.0/publish/
+        local-dir: "./publish/"
