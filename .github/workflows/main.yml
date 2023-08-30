@@ -23,7 +23,7 @@ jobs:
       run: dotnet build "/home/runner/work/TestGtihupActions/TestGtihupActions/TestGtihupActions.API/TestGtihupActions.API.csproj" --configuration Release  # Proje dosyalarını derle
 
     - name: Publish the project
-      run: dotnet publish --configuration Release --output ./publish  # Proje dosyalarını yayınla
+      run: dotnet publish "/home/runner/work/TestGtihupActions/TestGtihupActions/TestGtihupActions.API/TestGtihupActions.API.csproj" --configuration Release --output ./publish  # Proje dosyalarını yayınla
 
     - name: Deploy via FTP
       uses: sand4rt/ftp-deployer@v1.7  # FTP'ye yayın yapmak için bir Action kullan
