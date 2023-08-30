@@ -35,6 +35,6 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: "/home/runner/work/TestGtihupActions/TestGtihupActions/TestGtihupActions.API/bin/net7.0/publish/" 
+        local-dir: "/home/runner/work/TestGtihupActions/TestGtihupActions/TestGtihupActions.API/bin/Release/net7.0/publish/" 
         server-dir: /TestApiForActions/
     
