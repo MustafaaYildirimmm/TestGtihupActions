@@ -29,7 +29,8 @@ jobs:
       uses: sand4rt/ftp-deployer@v1.7  # FTP'ye yayın yapmak için bir Action kullan
 
       with:
-        server: ${{ secrets.FTP_SERVER }}  # FTP sunucu adresi
+        server: 40.113.58.136  # FTP sunucu adres
+        port: 9000
         username: ${{ secrets.FTP_USERNAME }}  # FTP kullanıcı adı
         password: ${{ secrets.FTP_PASSWORD }}  # FTP parola
         local-dir: ./publish  # Yayınlanmış dosyaların bulunduğu klasör
