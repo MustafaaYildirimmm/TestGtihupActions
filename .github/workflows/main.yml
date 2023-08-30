@@ -24,7 +24,7 @@ jobs:
       run: dotnet publish --configuration Release --output ./publish  # Proje dosyalarını yayınla
 
     - name: Deploy via FTP
-      uses: wvbe/ftp-deploy-action@v2  # FTP'ye yayın yapmak için bir Action kullan
+      uses: wvbe/TestApiForActions@v2  # FTP'ye yayın yapmak için bir Action kullan
 
       with:
         server: ${{ secrets.FTP_SERVER }}  # FTP sunucu adresi
