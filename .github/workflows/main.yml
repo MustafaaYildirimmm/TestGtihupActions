@@ -20,7 +20,7 @@ jobs:
         dotnet-version: 7.0.x
 
     - name: Build the project
-      run: dotnet build --configuration Release  # Proje dosyalarını derle
+      run: dotnet build /TestGtihupActions.API/TestGtihupActions.API.csproj --configuration Release  # Proje dosyalarını derle
 
     - name: Publish the project
       run: dotnet publish --configuration Release --output ./publish  # Proje dosyalarını yayınla
