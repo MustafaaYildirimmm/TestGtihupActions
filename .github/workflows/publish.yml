@@ -1,0 +1,28 @@
+
+name: Deploy to FTP
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2  # Repoyu çek
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3 
+      with:
+        dotnet-version: 7.0.x
+
+    - name: Build the project
+      run: dotnet build "/home/runner/work/TestGtihupActions/TestGtihupActions/TestGtihupActions.API/TestGtihupActions.API.csproj" --configuration Release  # Proje dosyalarını derle
+
+    - name: Publish the project
+      run: dotnet publish "/home/runner/work/TestGtihupActions/TestGtihupActions/TestGtihupActions.API/TestGtihupActions.API.csproj" --configuration Release    # Proje dosyalarını yayınla
+
