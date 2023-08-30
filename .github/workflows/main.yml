@@ -1,7 +1,4 @@
-# This workflow will build a .NET project
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
-
-name: .NET
+name: Deploy to FTP
 
 on:
   push:
@@ -10,32 +7,28 @@ on:
     branches: [ "master" ]
 
 jobs:
-  build:
-
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout repository
+      uses: actions/checkout@v2  # Repoyu çek
+
     - name: Setup .NET
-      uses: actions/setup-dotnet@v3
+      uses: actions/setup-dotnet@v2  # .NET runtime'ını kur
+
+    - name: Build the project
+      run: dotnet build --configuration Release  # Proje dosyalarını derle
+
+    - name: Publish the project
+      run: dotnet publish --configuration Release --output ./publish  # Proje dosyalarını yayınla
+
+    - name: Deploy via FTP
+      uses: wvbe/ftp-deploy-action@v2  # FTP'ye yayın yapmak için bir Action kullan
+
       with:
-        dotnet-version: 7.0.x
-    - name: Restore dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --no-restore
-    - name: Publish
-      run: dotnet publish --no-build -c Release
-  - name: FTP Deployer
-  uses: sand4rt/ftp-deployer@v1.7
-  with:
-    host: ${{ secrets.FTP_SERVER }}
-    port: ${{ secrets.FTP_PORT }}
-    # Ftp username
-    username: ${{ secrets.FTP_USERNAME }}
-    # Ftp password
-    password: ${{ secrets.FTP_PASSWORD }}
-    # The remote folder location of your FTP server
-    remote_folder: /TestApiForActions
-    # The local folder location
-    local_folder: /home/runner/work/TestGtihupActions/TestGtihupActions/TestGtihupActions.API/bin/Release/net7.0/publish/
+        server: ${{ secrets.FTP_SERVER }}  # FTP sunucu adresi
+        username: ${{ secrets.FTP_USERNAME }}  # FTP kullanıcı adı
+        password: ${{ secrets.FTP_PASSWORD }}  # FTP parola
+        local-dir: ./publish  # Yayınlanmış dosyaların bulunduğu klasör
+        remote-dir: /TestApiForActions  # Uzak sunucudaki hedef dizin
