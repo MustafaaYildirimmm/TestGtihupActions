@@ -32,7 +32,7 @@ jobs:
     - name: 📂 Sync files
       uses: airvzxf/ftp-deployment-action@latest
       with:
-        server: 40.113.58.136:9000
+        server: 40.113.58.136
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         server-dir: /TestApiForActions/
