@@ -38,3 +38,4 @@ jobs:
         password: ${{ secrets.FTP_PASSWORD }}
         server-dir: /TestApiForActions/
         protocol : ftps
+        local-dir : "./publish/"
