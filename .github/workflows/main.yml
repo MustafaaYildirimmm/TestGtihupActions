@@ -38,4 +38,4 @@ jobs:
         password: ${{ secrets.FTP_PASSWORD }}
         server-dir: /TestApiForActions/
         protocol : ftps
-        local-dir : ./home/runner/work/TestGtihupActions/TestGtihupActions/
+        #local-dir : ./home/runner/work/TestGtihupActions/TestGtihupActions/
