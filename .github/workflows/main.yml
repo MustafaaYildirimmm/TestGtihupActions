@@ -37,4 +37,4 @@ jobs:
         password: ${{ secrets.FTP_PASSWORD }}
         server-dir: /TestApiForActions/
         local-dir: ./home/runner/work/TestGtihupActions/TestGtihupActions/publish/
-        ftp_ssl_allow: false
+        ftp_ssl_allow: true
