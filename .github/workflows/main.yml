@@ -6,10 +6,7 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
-    
-env:
-     name: SSL_CERT_DIR
-     value: "/etc/ssl/certs"
+  
        
 jobs:
   publish:
