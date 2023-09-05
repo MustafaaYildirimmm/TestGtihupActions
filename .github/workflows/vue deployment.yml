@@ -13,15 +13,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Set Node.js 18.x
-      uses: actions/setup-node@v3
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
       with:
-        node-version: 18.x
+        node-version: '18'  # Vue projenizin gereksinimlerine uygun Node.js sürümünü seçin
 
-    - name: Build production bundle
-      uses: borales/actions-yarn@v4
-      with:
-       cmd: yarn --cwd ./testgtihupactions.webapplication build 
+    - name: Install Dependencies
+      run: yarn install  # veya npm install
+
+    - name: Build Vue.js App
+      run: yarn --cwd /home/runner/work/TestGtihupActions/TestGtihupActions/testgtihupactions.webapplication build  # veya npm run build
+
    
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
