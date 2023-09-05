@@ -18,13 +18,10 @@ jobs:
       with:
         node-version: 18.x
 
-    - name: Run install
-      uses: borales/actions-yarn@v4
-        
     - name: Build production bundle
       uses: borales/actions-yarn@v4
       with:
-       cmd: build:prod yarn --cwd "/home/runner/work/TestGtihupActions/TestGtihupActions/testgtihupactions.webapplication" build 
+       cmd: yarn --cwd "/home/runner/work/TestGtihupActions/TestGtihupActions/testgtihupactions.webapplication" build 
    
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
