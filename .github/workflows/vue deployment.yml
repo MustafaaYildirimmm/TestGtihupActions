@@ -22,7 +22,7 @@ jobs:
       run: yarn install  # veya npm install
 
     - name: Build Vue.js App
-      run: yarn --cwd /home/runner/work/TestGtihupActions/TestGtihupActions/testgtihupactions.webapplication build  # veya npm run build
+      run: yarn --cwd ./testgtihupactions.webapplication build  # veya npm run build
 
    
     - name: 📂 Sync files
